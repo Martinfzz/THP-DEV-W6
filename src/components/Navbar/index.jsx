@@ -1,10 +1,13 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import {
   Link,
 } from 'react-router-dom';
 
 const Navbar = (props) => {
-  const {onClick, dataTheme, dataButtonTheme} = props
+  const { onClick, dataTheme, dataButtonTheme } = props;
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-${dataTheme} bg-${dataTheme} shadow p-3 mb-5 bg-${dataTheme} rounded`}>
@@ -23,10 +26,10 @@ const Navbar = (props) => {
         </ul>
       </div>
       <div className="navbar-text">
-        <button className={`btn btn-outline-${dataButtonTheme} my-2 my-sm-0 bg-${dataTheme}`} onClick={onClick}>Mode {dataTheme}</button>
+        <button className={`btn btn-outline-${dataButtonTheme} my-2 my-sm-0 bg-${dataTheme}`} onClick={onClick} type="button">Mode {dataTheme}</button>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;
