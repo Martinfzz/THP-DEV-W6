@@ -2,6 +2,9 @@ import React from 'react';
 import {
   useParams,
 } from 'react-router-dom';
+import Showdown from 'showdown';
+
+const converter = new Showdown.Converter();
 
 const StudyCase = () => {
   const { worksSlug } = useParams();
@@ -9,9 +12,9 @@ const StudyCase = () => {
   return (
     <div>
       {clients.map(element => element.name.toLowerCase() === worksSlug.split("-")[0] ? 
-      (<><h3>{element.name}</h3>
-      <h4>{element.title}</h4>
-      <p>{element.text}</p></>) : null)}
+      (<><h1>{element.name}</h1>
+      <span dangerouslySetInnerHTML={{ __html: converter.makeHtml(element.title) }}/>
+      <span dangerouslySetInnerHTML={{ __html: converter.makeHtml(element.text) }}/></>) : null)}
     </div>
   )
 }

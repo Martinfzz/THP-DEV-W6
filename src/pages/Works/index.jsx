@@ -4,6 +4,9 @@ import {
   useParams,
   useLocation
 } from 'react-router-dom';
+import Showdown from 'showdown';
+
+const converter = new Showdown.Converter();
 
 const Works = () => {
   const clientName = ["Platon", "Solane", "Sedal"];
@@ -13,7 +16,9 @@ const Works = () => {
   console.log(pathname)
   return (
     <div className="mt-5">
-      { (<><h2>Projects</h2>
+      { (<>
+      <span dangerouslySetInnerHTML={{ __html: converter.makeHtml("### Au fil des années, nous avons pu accompagner les meilleurs.") }}/>
+      <span dangerouslySetInnerHTML={{ __html: converter.makeHtml("Découvrez pas à pas comment nous avons été présent pour lancer vos marques préférées.") }}/>
       <ul>
         {clientName.map(element => 
           <li>
