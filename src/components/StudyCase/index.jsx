@@ -7,6 +7,7 @@ import Showdown from 'showdown';
 
 const converter = new Showdown.Converter();
 
+// Clients informations
 const clients = [
   {
     name: 'Platon',
@@ -26,8 +27,10 @@ const clients = [
 ];
 
 const StudyCase = () => {
+  // We will use the slug as params
   const { worksSlug } = useParams();
 
+  // We compare each elements with the slug to see witch one we need to display
   return (
     <div>
       {clients.map((element) => (element.name.toLowerCase() === worksSlug.split('-')[0]

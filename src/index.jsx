@@ -18,13 +18,17 @@ import { GlobalStyles } from './context/global';
 import useDarkMode from './context/useDarkMode';
 
 const App = () => {
+  // Call the dark mode
   const [theme, buttonTheme, toggleTheme, componentMounted] = useDarkMode();
+  // Toggle the mode
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
+  // If the componenet is not mounted we display nothing
   if (!componentMounted) {
     return null;
   }
 
+  // If it's mounted we display everything with the mode selected
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
